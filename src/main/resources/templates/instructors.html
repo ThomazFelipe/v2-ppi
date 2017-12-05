@@ -9,8 +9,15 @@
 <body>
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <div id="top" class="row">
+        <div class="col-md-12">
+            <a href="#" th:href="@{/instructor/new}" class="btn btn-primary pull-right h2">Novo Instrutor</a>
+        </div>
+    </div>
+
     <div th:if="${not #lists.isEmpty(instructors)}">
-        <h2>Lista de Classes</h2>
+        <h2>Lista de Aulas</h2>
         <table class="table table-striped">
             <tr>
                 <th>Id</th>

@@ -39,10 +39,10 @@ public class GradeController {
         return "gradeform";
     }
 
-    @RequestMapping( "/class/new" )
+    @RequestMapping( "/grade/new" )
     public String add (Model model) {
         model.addAttribute("class", new City());
-        return "classform";
+        return "gradeform";
     }
 
     @RequestMapping( value = "class", method = RequestMethod.POST )
