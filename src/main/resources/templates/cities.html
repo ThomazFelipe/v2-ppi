@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>PPI V2</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <div id="top" class="row">
+        <div class="col-md-12">
+            <a href="#" th:href="@{/city/new}" class="btn btn-primary pull-right h2">Nova Cidade</a>
+        </div>
+    </div>
+
+    <div th:if="${not #lists.isEmpty(cities)}">
+        <h2>Lista de Cidades</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Visualizar</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+            </tr>
+            <tr th:each="city : ${cities}">
+                <td th:text="${city.id}"><a href="/city/${city.id}">Id</a></td>
+                <td th:text="${city.name}">Nome</td>
+                <td><a th:href="${'/city/' + city.id}">Visualizar</a></td>
+                <td><a th:href="${'/city/edit/' + city.id}">Editar</a></td>
+                <td><a th:href="${'/city/delete/' + city.id}">Deletar</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

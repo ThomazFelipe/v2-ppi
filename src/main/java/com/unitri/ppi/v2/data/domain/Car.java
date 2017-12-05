@@ -8,43 +8,43 @@ public class Car {
 
     @Id
     @Column( name = "ID" )
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column( name = "BOARD")
+    @Column( name = "BOARD" )
     private String board;
 
     @Column( name = "MODEL" )
     private String model;
 
-    public Long getId() {
+    public Long getId () {
 
         return id;
     }
 
-    public Car id( Long id ) {
+    public Car id (Long id) {
 
         this.id = id;
         return this;
     }
 
-    public String getBoard() {
+    public String getBoard () {
 
         return board;
     }
 
-    public Car board( String board ) {
+    public Car board (String board) {
 
         this.board = board;
         return this;
     }
 
-    public String getModel() {
+    public String getModel () {
 
         return model;
     }
 
-    public Car model( String model ) {
+    public Car model (String model) {
 
         this.model = model;
         return this;

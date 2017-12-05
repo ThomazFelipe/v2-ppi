@@ -3,79 +3,57 @@ package com.unitri.ppi.v2.controller;
 import com.unitri.ppi.v2.data.domain.Car;
 import com.unitri.ppi.v2.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController
-@RequestMapping( "/car" )
+@Controller
 public class CarController {
 
-    private CarService service;
+    private final CarService service;
 
     @Autowired
-    public CarController( CarService service ) {
+    public CarController (CarService service) {
 
         this.service = service;
     }
 
-    @GetMapping
-    public ResponseEntity getCars() {
-
-        try {
-
-            return ResponseEntity.ok().body( service.getCars() );
-        } catch( Exception e ) {
-
-            return ResponseEntity.status( HttpStatus.INTERNAL_SERVER_ERROR ).build();
-        }
+    @RequestMapping(value = "/cars", method = RequestMethod.GET)
+    public String list(Model model) {
+        model.addAttribute("cars", service.getCars());
+        return "cars";
     }
 
-    @GetMapping( "/{id}" )
-    public ResponseEntity getCarById( Long id ) {
 
-        try {
-
-            return ResponseEntity.ok().body( service.getCarById( id ) );
-        } catch( Exception e ) {
-
-            return ResponseEntity.badRequest().build();
-        }
+    @RequestMapping("car/{id}")
+    public String showCar(@PathVariable Long id, Model model) {
+        model.addAttribute("car", service.getCarById(id));
+        return "carshow";
     }
 
-    @PostMapping
-    public ResponseEntity save( Car car ) {
-
-        try {
-
-            return ResponseEntity.ok().body( service.saveAndFlush( car ) );
-        } catch( Exception e ) {
-
-            return ResponseEntity.badRequest().build();
-        }
+    @RequestMapping("car/edit/{id}")
+    public String edit(@PathVariable Long id, Model model) {
+        model.addAttribute("car", service.getCarById(id));
+        return "carform";
     }
 
-    @PutMapping
-    public ResponseEntity update( Car car ) {
-
-        try {
-
-            return ResponseEntity.ok().body( service.saveAndFlush( car ) );
-        } catch( Exception e ) {
-
-            return ResponseEntity.badRequest().build();
-        }
+    @RequestMapping("car/new")
+    public String newCar(Model model) {
+        model.addAttribute("car", new Car());
+        return "carform";
     }
 
-    @DeleteMapping( "/{id}" )
-    public ResponseEntity delete( Long id ) {
+    @RequestMapping(value = "car", method = RequestMethod.POST)
+    public String saveCar(Car car) {
+        service.saveAndFlush(car);
+        return "redirect:/car/" + car.getId();
+    }
 
-        try {
-            service.delete( id );
-            return ResponseEntity.status( HttpStatus.OK ).build();
-        } catch( Exception e ) {
-
-            return ResponseEntity.badRequest().build();
-        }
+    @RequestMapping("car/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        service.delete(id);
+        return "redirect:/cars";
     }
 }

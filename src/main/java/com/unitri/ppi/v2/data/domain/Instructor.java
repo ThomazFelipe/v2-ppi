@@ -18,34 +18,34 @@ public class Instructor {
     @JoinColumn( name = "ADDRESS_ID" )
     private Address address;
 
-    public Long getId() {
+    public Long getId () {
 
         return id;
     }
 
-    public Instructor id( Long id ) {
+    public Instructor id (Long id) {
 
         this.id = id;
         return this;
     }
 
-    public String getName() {
+    public String getName () {
 
         return name;
     }
 
-    public Instructor name( String name ) {
+    public Instructor name (String name) {
 
         this.name = name;
         return this;
     }
 
-    public Address getAddress() {
+    public Address getAddress () {
 
         return address;
     }
 
-    public Instructor address( Address address ) {
+    public Instructor address (Address address) {
 
         this.address = address;
         return this;

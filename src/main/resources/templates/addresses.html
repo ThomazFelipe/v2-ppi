@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>PPI V2</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <div id="top" class="row">
+        <div class="col-md-12">
+            <a href="#" th:href="@{/address/new}" class="btn btn-primary pull-right h2">Novo Endereço</a>
+        </div>
+    </div>
+
+    <div th:if="${not #lists.isEmpty(addresses)}">
+        <h2>Lista de Endereços</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Cidade</th>
+                <th>Rua</th>
+                <th>Numero</th>
+                <th>Complemento</th>
+                <th>Visualizar</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+            </tr>
+            <tr th:each="address : ${addresses}">
+                <td th:text="${address.id}"><a href="/address/${address.id}">Id</a></td>
+                <td th:text="${address.city}">Cidade</td>
+                <td th:text="${address.street}">Rua</td>
+                <td th:text="${address.number}">Numero</td>
+                <td th:text="${address.complement}">Complemento</td>
+                <td><a th:href="${'/address/' + address.id}">Visualizar</a></td>
+                <td><a th:href="${'/address/edit/' + address.id}">Editar</a></td>
+                <td><a th:href="${'/address/delete/' + address.id}">Deletar</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

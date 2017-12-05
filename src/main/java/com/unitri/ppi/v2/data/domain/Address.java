@@ -24,51 +24,51 @@ public class Address {
     @Column( name = "COMPLEMENT" )
     private String complement;
 
-    public Long getId() {
+    public Long getId () {
         return id;
     }
 
-    public Address id( Long id ) {
+    public Address id (Long id) {
 
         this.id = id;
         return this;
     }
 
-    public City getCity() {
+    public City getCity () {
         return city;
     }
 
-    public Address city( City city ) {
+    public Address city (City city) {
 
         this.city = city;
         return this;
     }
 
-    public String getStreet() {
+    public String getStreet () {
         return street;
     }
 
-    public Address street( String street ) {
+    public Address street (String street) {
 
         this.street = street;
         return this;
     }
 
-    public Long getNumber() {
+    public Long getNumber () {
         return number;
     }
 
-    public Address number( Long number ) {
+    public Address number (Long number) {
 
         this.number = number;
         return this;
     }
 
-    public String getComplement() {
+    public String getComplement () {
         return complement;
     }
 
-    public Address complement( String complement ) {
+    public Address complement (String complement) {
 
         this.complement = complement;
         return this;

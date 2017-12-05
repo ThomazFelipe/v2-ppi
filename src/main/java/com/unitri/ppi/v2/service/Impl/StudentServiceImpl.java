@@ -15,33 +15,33 @@ public class StudentServiceImpl implements StudentService {
     private StudentRepository repository;
 
     @Autowired
-    public StudentServiceImpl ( StudentRepository repository ) {
+    public StudentServiceImpl (StudentRepository repository) {
 
         this.repository = repository;
     }
 
     @Override
-    public List< Student > getStudents() {
+    public List< Student > getStudents () {
 
         return repository.findAll();
     }
 
     @Override
-    public Student getStudentById( Long id ) {
+    public Student getStudentById (Long id) {
 
-        return repository.findOne( id );
+        return repository.findOne(id);
     }
 
     @Override
     @Transactional
-    public Student saveAndFlush( Student student ) {
+    public Student saveAndFlush (Student student) {
 
-        return repository.saveAndFlush( student );
+        return repository.saveAndFlush(student);
     }
 
     @Override
-    public void delete( Long id ) {
+    public void delete (Long id) {
 
-        repository.delete( id );
+        repository.delete(id);
     }
 }

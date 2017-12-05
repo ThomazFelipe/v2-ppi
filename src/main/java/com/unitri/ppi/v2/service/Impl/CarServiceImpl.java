@@ -15,34 +15,34 @@ public class CarServiceImpl implements CarService {
     private CarRepository repository;
 
     @Autowired
-    public CarServiceImpl( CarRepository repository ) {
+    public CarServiceImpl (CarRepository repository) {
 
         this.repository = repository;
     }
 
     @Override
-    public List< Car > getCars() {
+    public List< Car > getCars () {
 
         return repository.findAll();
     }
 
     @Override
-    public Car getCarById( Long id ) {
+    public Car getCarById (Long id) {
 
-        return repository.findOne( id );
+        return repository.findOne(id);
     }
 
     @Override
     @Transactional
-    public Car saveAndFlush( Car car ) {
+    public Car saveAndFlush (Car car) {
 
-        return repository.saveAndFlush( car );
+        return repository.saveAndFlush(car);
     }
 
     @Override
     @Transactional
-    public void delete( Long id ) {
+    public void delete (Long id) {
 
-        repository.delete( id );
+        repository.delete(id);
     }
 }

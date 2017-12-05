@@ -14,23 +14,23 @@ public class City {
     @Column( name = "NAME" )
     private String name;
 
-    public Long getId() {
+    public Long getId () {
 
         return id;
     }
 
-    public City id( Long id ) {
+    public City id (Long id) {
 
         this.id = id;
         return this;
     }
 
-    public String getName() {
+    public String getName () {
 
         return name;
     }
 
-    public City name( String name ) {
+    public City name (String name) {
 
         this.name = name;
         return this;

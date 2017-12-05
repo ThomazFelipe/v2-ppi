@@ -22,45 +22,45 @@ public class Student {
     @Enumerated( EnumType.STRING )
     private StatusEnum status;
 
-    public Long getId() {
+    public Long getId () {
 
         return id;
     }
 
-    public Student id( Long id ) {
+    public Student id (Long id) {
 
         this.id = id;
         return this;
     }
 
-    public String getName() {
+    public String getName () {
 
         return name;
     }
 
-    public Student name( String name ) {
+    public Student name (String name) {
 
         this.name = name;
         return this;
     }
 
-    public Address getAddress() {
+    public Address getAddress () {
 
         return address;
     }
 
-    public Student address( Address address ) {
+    public Student address (Address address) {
 
         this.address = address;
         return this;
     }
 
-    public StatusEnum getStatus() {
+    public StatusEnum getStatus () {
 
         return status;
     }
 
-    public Student status( StatusEnum status ) {
+    public Student status (StatusEnum status) {
 
         this.status = status;
         return this;

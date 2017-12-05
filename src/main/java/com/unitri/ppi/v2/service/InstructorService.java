@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface InstructorService {
 
-    List< Instructor > getInstructors();
+    List< Instructor > getInstructors ();
 
-    Instructor getInstructorById( Long id );
+    Instructor getInstructorById (Long id);
 
-    Instructor saveAndFlush( Instructor instructor );
+    Instructor saveAndFlush (Instructor instructor);
 
-    void delete( Long id );
+    void delete (Long id);
 }

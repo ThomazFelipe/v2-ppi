@@ -15,34 +15,34 @@ public class InstructorServiceImpl implements InstructorService {
     private InstructorRepository repository;
 
     @Autowired
-    public InstructorServiceImpl( InstructorRepository repository ) {
+    public InstructorServiceImpl (InstructorRepository repository) {
 
         this.repository = repository;
     }
 
     @Override
-    public List< Instructor > getInstructors() {
+    public List< Instructor > getInstructors () {
 
         return repository.findAll();
     }
 
     @Override
-    public Instructor getInstructorById( Long id ) {
+    public Instructor getInstructorById (Long id) {
 
-        return repository.findOne( id );
+        return repository.findOne(id);
     }
 
     @Override
     @Transactional
-    public Instructor saveAndFlush( Instructor instructor ) {
+    public Instructor saveAndFlush (Instructor instructor) {
 
-        return repository.saveAndFlush( instructor );
+        return repository.saveAndFlush(instructor);
     }
 
     @Override
     @Transactional
-    public void delete( Long id ) {
+    public void delete (Long id) {
 
-        repository.delete( id );
+        repository.delete(id);
     }
 }

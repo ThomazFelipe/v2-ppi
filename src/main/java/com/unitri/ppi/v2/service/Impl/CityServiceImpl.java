@@ -15,31 +15,31 @@ public class CityServiceImpl implements CityService {
     private CityRepository repository;
 
     @Autowired
-    public CityServiceImpl( CityRepository repository ) {
+    public CityServiceImpl (CityRepository repository) {
 
         this.repository = repository;
     }
 
     @Override
-    public List< City > getCities() {
+    public List< City > getCities () {
         return repository.findAll();
     }
 
     @Override
-    public City getCityById( Long id ) {
-        return repository.findOne( id );
+    public City getCityById (Long id) {
+        return repository.findOne(id);
     }
 
     @Override
     @Transactional
-    public City saveAndFlush( City city ) {
+    public City saveAndFlush (City city) {
 
-        return repository.saveAndFlush( city );
+        return repository.saveAndFlush(city);
     }
 
     @Override
     @Transactional
-    public void delete( Long id ) {
-        repository.delete( id );
+    public void delete (Long id) {
+        repository.delete(id);
     }
 }
