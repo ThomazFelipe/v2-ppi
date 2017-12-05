@@ -14,55 +14,19 @@ public class Student {
     @Column( name = "NAME" )
     private String name;
 
-    @OneToOne( fetch = FetchType.LAZY )
-    @JoinColumn( name = "ADDRESS_ID" )
-    private Address address;
-
-    @Column( name = "STATUS" )
-    @Enumerated( EnumType.STRING )
-    private StatusEnum status;
-
-    public Long getId () {
-
+    public Long getId() {
         return id;
     }
 
-    public Student id (Long id) {
-
+    public void setId( Long id ) {
         this.id = id;
-        return this;
     }
 
-    public String getName () {
-
+    public String getName() {
         return name;
     }
 
-    public Student name (String name) {
-
+    public void setName( String name ) {
         this.name = name;
-        return this;
-    }
-
-    public Address getAddress () {
-
-        return address;
-    }
-
-    public Student address (Address address) {
-
-        this.address = address;
-        return this;
-    }
-
-    public StatusEnum getStatus () {
-
-        return status;
-    }
-
-    public Student status (StatusEnum status) {
-
-        this.status = status;
-        return this;
     }
 }

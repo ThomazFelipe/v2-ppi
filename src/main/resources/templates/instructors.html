@@ -17,19 +17,18 @@
     </div>
 
     <div th:if="${not #lists.isEmpty(instructors)}">
-        <h2>Lista de Aulas</h2>
+        <h2>Lista de Instrutores</h2>
         <table class="table table-striped">
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
-                <th>Endereço</th>
+                <th>Vizualizar</th>
                 <th>Editar</th>
                 <th>Deletar</th>
             </tr>
             <tr th:each="instructor : ${instructors}">
                 <td th:text="${instructor.id}"><a href="/instructor/${instructor.id}">Id</a></td>
-                <td th:text="${instructor.name}">Estudante</td>
-                <td th:text="${instructor.address.street}">Endereço</td>
+                <td th:text="${instructor.name}">Nome</td>
                 <td><a th:href="${'/instructor/' + instructor.id}">Visualizar</a></td>
                 <td><a th:href="${'/instructor/edit/' + instructor.id}">Editar</a></td>
                 <td><a th:href="${'/instructor/delete/' + instructor.id}">Deletar</a></td>

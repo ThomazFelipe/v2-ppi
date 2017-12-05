@@ -3,7 +3,7 @@ package com.unitri.ppi.v2.data.domain;
 import javax.persistence.*;
 
 @Entity
-@Table( name = "CLASS" )
+@Table( name = "GRADE" )
 public class Grade {
 
     @Id

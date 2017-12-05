@@ -30,7 +30,7 @@ public class StudentController {
     @RequestMapping( "student/{id}" )
     public String show (@PathVariable Long id, Model model) {
         model.addAttribute("student", service.getStudentById(id));
-        return "studentsshow";
+        return "studentshow";
     }
 
     @RequestMapping( "student/edit/{id}" )

@@ -17,21 +17,22 @@
     </div>
 
     <div th:if="${not #lists.isEmpty(grades)}">
-        <h2>Lista de Classes</h2>
+        <h2>Lista de Aulas</h2>
         <table class="table table-striped">
             <tr>
                 <th>Id</th>
                 <th>Estudante</th>
-                <th>Instrutor</th>
                 <th>Carro</th>
+                <th>Instrutor</th>
+                <th>Visualizar</th>
                 <th>Editar</th>
                 <th>Deletar</th>
             </tr>
             <tr th:each="grade : ${grades}">
                 <td th:text="${grade.id}"><a href="/grade/${grade.id}">Id</a></td>
                 <td th:text="${grade.student.name}">Estudante</td>
-                <td th:text="${grade.instructor.name}">Instrutor</td>
                 <td th:text="${grade.car.model}">Carro</td>
+                <td th:text="${grade.instructor.name}">Instrutor</td>
                 <td><a th:href="${'/grade/' + grade.id}">Visualizar</a></td>
                 <td><a th:href="${'/grade/edit/' + grade.id}">Editar</a></td>
                 <td><a th:href="${'/grade/delete/' + grade.id}">Deletar</a></td>

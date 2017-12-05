@@ -14,10 +14,6 @@ public class Instructor {
     @Column( name = "NAME" )
     private String name;
 
-    @OneToOne( fetch = FetchType.LAZY )
-    @JoinColumn( name = "ADDRESS_ID" )
-    private Address address;
-
     public Long getId() {
         return id;
     }
@@ -32,13 +28,5 @@ public class Instructor {
 
     public void setName( String name ) {
         this.name = name;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress( Address address ) {
-        this.address = address;
     }
 }

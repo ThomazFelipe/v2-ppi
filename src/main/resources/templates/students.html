@@ -22,16 +22,13 @@
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
-                <th>Endereço</th>
-                <th>Status</th>
+                <th>Vizualizar</th>
                 <th>Editar</th>
                 <th>Deletar</th>
             </tr>
             <tr th:each="student : ${students}">
                 <td th:text="${student.id}"><a href="/student/${student.id}">Id</a></td>
                 <td th:text="${student.name}">Nome</td>
-                <td th:text="${student.address.street}">Instrutor</td>
-                <td th:text="${student.status}">Status</td>
                 <td><a th:href="${'/student/' + student.id}">Visualizar</a></td>
                 <td><a th:href="${'/student/edit/' + student.id}">Editar</a></td>
                 <td><a th:href="${'/student/delete/' + student.id}">Deletar</a></td>
