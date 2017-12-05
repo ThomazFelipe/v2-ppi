@@ -17,36 +17,27 @@ public class Car {
     @Column( name = "MODEL" )
     private String model;
 
-    public Long getId () {
-
+    public Long getId() {
         return id;
     }
 
-    public Car id (Long id) {
-
+    public void setId( Long id ) {
         this.id = id;
-        return this;
     }
 
-    public String getBoard () {
-
+    public String getBoard() {
         return board;
     }
 
-    public Car board (String board) {
-
+    public void setBoard( String board ) {
         this.board = board;
-        return this;
     }
 
-    public String getModel () {
-
+    public String getModel() {
         return model;
     }
 
-    public Car model (String model) {
-
+    public void setModel( String model ) {
         this.model = model;
-        return this;
     }
 }
